@@ -4,7 +4,7 @@ body { height: 100%; margin: 0; padding: 0; position:relative; }
 .sliderpos {
 	position: absolute;
 	z-index: 9999;
-	top: 00px;
+	top: 10px;
 	left: 100px;
 	width: 80%;
 }
