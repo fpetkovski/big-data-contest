@@ -6,7 +6,8 @@ body { height: 100%; margin: 0; padding: 0; position:relative; }
 	z-index: 9999;
 	top: 0px;
 	left: 0px;
-	background:#fff;
+	background:rgba(255,255,255);
+	background:rgba(255,255,255,0.9);
 	width:100%;
 }
 .slider-container {
