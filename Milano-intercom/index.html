@@ -1,21 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <style type="text/css">
-      html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0 }
-      #map-canvas { height: 100% }
-    </style>
-    <script type="text/javascript" 
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC59hensqDqi_uPsyZgFlIeUOJ-bt781nY&sensor=true"></script>
-      <script src="http//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script type="text/javascript" src="data/calls.js"></script>
-    <script type="text/javascript" src="data/milano-grid.js"></script>
+<head>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/ithing-min.css" />
+  
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 
-    <script type="text/javascript" src="app.js"></script>
-  </head>
-  <body>
-    <div id="map-canvas"/>
-  </body>
+  <!-- Remote CDN JS -->
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC59hensqDqi_uPsyZgFlIeUOJ-bt781nY&sensor=true"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <!-- Local JS -->
+  <script type="text/javascript" src="data/jQAllRangeSliders-withRuler-min.js"></script>
+  <script type="text/javascript" src="data/calls.js"></script>
+  <script type="text/javascript" src="data/milano-grid.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+  <div id="map-canvas">
+  </div>
+  <div class="sliderpos">
+    <div class="date-slider"></div>
+  </div>
+</body>
+
+<script>
+  (function($){
+    var Months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    $(document).ready(function(){
+      $(".date-slider").dateRangeSlider({
+        bounds: {min: new Date(2012, 0, 1), max: new Date(2012, 11, 31, 12, 59, 59)},
+        defaultValues: {min: new Date(2012, 1, 10), max: new Date(2012, 4, 22)},
+        scales: [{
+          next: function(val){
+            var next = new Date(val);
+            return new Date(next.setMonth(next.getMonth() + 1));
+          },
+          label: function(val){
+            return Months[val.getMonth()];
+          }
+        }]
+      });
+    });
+  })(jQuery);
+  </script>
 </html>

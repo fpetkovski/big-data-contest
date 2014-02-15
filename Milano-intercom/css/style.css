@@ -1,0 +1,10 @@
+html { height: 100% }
+body { height: 100%; margin: 0; padding: 0; position:relative; }
+#map-canvas { height: 100%; }
+.sliderpos {
+	position: absolute;
+	z-index: 9999;
+	top: 00px;
+	left: 100px;
+	width: 80%;
+}
