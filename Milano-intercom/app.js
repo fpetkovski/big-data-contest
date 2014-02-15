@@ -40,12 +40,40 @@ function initialize() {
 	var stylez = [{
 			featureType: "all",
 			stylers: [{ hue: "#0000ff" }, { saturation: -75 }]
-			},
+		},
 		{
 		    featureType: "poi",
 		    elementType: "label",
 		    stylers: [{ visibility: "off" }]
-	  	}
+	  	},
+		{
+			featureType: "administrative",
+		    elementType: "labels",
+		    stylers: [{
+		        visibility: "off"
+		    }]
+		}, 
+		{
+		    featureType: "poi",
+		    elementType: "labels",
+		    stylers: [{
+		        visibility: "off"
+		    }]
+		}, 
+		{
+		    featureType: "water",
+		    elementType: "labels",
+		    stylers: [{
+		        visibility: "off"
+		    }]
+		}, 
+		{
+		    featureType: "road",
+		    elementType: "labels",
+		    stylers: [{
+		        visibility: "off"
+		    }]
+		}
     ];
 
 	var styledMapType = new google.maps.StyledMapType(stylez, {name: "Edited"});
