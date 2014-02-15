@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/eggplant/jquery-ui.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/ithing-min.css" />
   
@@ -8,7 +9,7 @@
 
   <!-- Remote CDN JS -->
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC59hensqDqi_uPsyZgFlIeUOJ-bt781nY&sensor=true"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
   <!-- Local JS -->
   <script type="text/javascript" src="data/calls.js"></script>
@@ -18,20 +19,36 @@
 <body>
   <div id="map-canvas">
   </div>
-  <div class="sliderpos">
-  <div class="date-slider"></div>
+  <div class="controls-bg">
+    <div class="slider-container">
+      <div class="slider"></div>
+      <div class="current-slide ui-state-default"></div>
+
+    </div>
+    <div class="button-container">
+      <div id="format" class="ui-buttonset">
+          <input type="checkbox" id="telephone" class="ui-helper-hidden-accessible"><label for="telephone" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-left" role="button" aria-disabled="false"><span class="ui-button-text">Telephone Calls</span></label>
+          <input type="checkbox" id="socialmedia" class="ui-helper-hidden-accessible"><label for="socialmedia" class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Social Media</span></label>
+          <input type="checkbox" id="other" class="ui-helper-hidden-accessible"><label for="other" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-right" role="button" aria-disabled="false"><span class="ui-button-text">Other shit</span></label>
+        </div>
+    </div>
   </div>
 </body>
 
 <!-- LATE Local JS -->
-<script type="text/javascript" src="data/jQAllRangeSliders-withRuler-min.js"></script>
-
-<script>
-  (function($){
-    $(document).ready(function(){
-
-      $(".date-slider").rangeSlider({range: {min: 1, max: 4}},{bounds: {min: 1, max: 24}});
+ <script>
+  $(function() {
+    $( ".slider").slider({
+      min:1,
+      max:24,
+      slide: function( event, ui ) {
+          $( ".current-slide" ).html( ui.value );
+      }
     });
-  })(jQuery);
+  });
+  $(function() {
+    $( "#format" ).buttonset();
+  });
+  $('.current-slide').html(ui.value);
   </script>
 </html>
